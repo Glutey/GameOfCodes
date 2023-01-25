@@ -59,24 +59,6 @@ function displayQuestion() {
     endQuiz();
   }
 }
-
-
-  // function displayQuestion() {
-  //     var currentQuest = questions[currentQuestion];//create a variable to get the current question object from question array
-  //     if (currentQuest < questions.length){
-  //       questionTitle.innerHTML = questions[currentQuestion].question; //update title with with current question...currentQuest.title
-  //       choicesContainer.innerHTML = "";
-  //       for (var i = 0; i < questions[currentQuestion].choices.length; i++) { //loop over questions
-  //         var choice = document.createElement("button"); //create a new button for each choice
-  //         choice.innerHTML = questions[currentQuestion].choices[i]; //set a value attribute to each with a value of questions.choices[i]
-  //         choice.addEventListener("click", checkAnswer); //attach a click event to the button with the checkAnswer function as the event
-  //         choicesContainer.appendChild(choice); //append the button to the choices
-  //       }
-  //     } else {
-  //       endQuiz(); //clear out the choices element
-  //     }
-  //   }
-    
   
   function checkAnswer() {
     if (this.innerHTML === questions[currentQuestion].answer) { //check if the value of the button clicked(this) and if it matches the answer of the current question
@@ -86,9 +68,9 @@ function displayQuestion() {
       feedback.classList.remove("hide");
     } else {
       time -= 10; //else you need to reduce 15 seconds from the time
-      feedback.innerHTML = sfxWrong;
+      feedback.innerHTML = sfxWrong();
       feedback.classList.remove("hide"); //remove the class of hide to the feedback element
-      timeLeft(); //display the new time on the page
+    //   timeLeft(); //display the new time on the page
     }
     setTimeout(function() { //set a timeout function so that the class of hide gets added back after a second to hide the feedback
       feedback.classList.add("hide");
