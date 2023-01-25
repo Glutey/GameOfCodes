@@ -21,18 +21,14 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
  var initialsInput = document.getElementById("initials");
  var submitButton = document.getElementById("submit");
  submitButton.addEventListener("click", saveScore);
-
- var endQuiz = document.getElementById("end-screen"); // Grabs the div that will allow us to end the game and toggle the visibility.
  
  var feedback = document.getElementById("feedback");
 
-
 // Functions for working code:
-
 
 function startQuiz() {
   startButton.classList.add("hide");
-  questionsContainer.classList.remove("hide");
+  questionContainer.classList.remove("hide");
   timer = setInterval(function() {
     time--;
     document.getElementById("time").innerHTML = time;
@@ -46,7 +42,7 @@ function startQuiz() {
 
 function displayQuestion() {
   if (currentQuestion < questions.length) {
-    questionTitle.innerHTML = questions[currentQuestion].question;
+    questionsTitle.innerHTML = questions[currentQuestion].question;
     choicesContainer.innerHTML = "";
     for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
       var choice = document.createElement("button");
