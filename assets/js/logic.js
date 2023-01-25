@@ -4,7 +4,7 @@ var time = 60;
 var timer;
 var currentQuestion = 0;
 var score = 0;
-var submit = ;
+var submit;
 
 // sound effects for right and wrong answer
 var sfxRight = new Audio("assets/sfx/correct.wav");
@@ -12,7 +12,7 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
                 
  // start game with an event listener - set up function to start timer and display questions.
  var startQuiz = document.getElementById("start"); 
- document.addEventListener("click"); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
+ document.addEventListener("click", startQuiz); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
 
  var questionContainer = document.getElementById("questons"); //used to grab div for the Questions.
  var questionsTitle = document.getElementById("question-title");
@@ -104,6 +104,17 @@ function endQuiz() {
   clearInterval(timer); //inside the function clear the interval of the timer
   questionsContainer.classList.add("hide"); //hide the questions
   endScreen.classList.remove //show the end screen
+  ("hide");
+  finalScore.innerHTML = score;
+}
+
+function saveScore() {
+  var initials = initialsInput.value;
+  var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  highscores.push({initials: initials, score: score});
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+  window.location.href = "highscores.html";
+}
 
 
   //show the final score
