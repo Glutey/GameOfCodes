@@ -4,7 +4,6 @@ var time = 60;
 var timer;
 var currentQuestion = 0;
 var score = 0;
-var submit;
 
 // sound effects for right and wrong answer
 var sfxRight = new Audio("assets/sfx/correct.wav");
