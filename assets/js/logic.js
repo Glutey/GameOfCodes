@@ -11,7 +11,8 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
                 
  // start game with an event listener - set up function to start timer and display questions.
  var startQuiz = document.getElementById("start"); 
- document.addEventListener("click", startQuiz); // this should then be startQuiz.addEventListener("click"); this then states what we want from it
+ document.addEventListener("click", startQuiz);
+ startButton.addEventListener("click") // this should then be startQuiz.addEventListener("click"); this then states what we want from it
 
  var questionContainer = document.getElementById("questons"); //used to grab div for the Questions.
  var questionsTitle = document.getElementById("question-title");
