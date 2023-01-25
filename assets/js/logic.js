@@ -12,10 +12,7 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
  // start game with an event listener - set up function to start timer and display questions.
  var startButton = document.getElementById("start"); 
  startButton.addEventListener("click", startQuiz);
-//  startButton.addEventListener("click") // this should then be startQuiz.addEventListener("click"); this then states what we want from it
 
-
-//  var startButton = document.getElementById("")
  var questionContainer = document.getElementById("questions"); //used to grab div for the Questions.
  var questionsTitle = document.getElementById("question-title");
  var choicesContainer = document.getElementById("choices"); // Grab div for the answer choices.
@@ -78,7 +75,7 @@ function displayQuestion() {
     }, 1000);
   }
   
-    //make a condition so that if we ran out of questions the quiz ends, else displayQuestion
+   //make a condition so that if we ran out of questions the quiz ends, else displayQuestion
 
   //create a function to end the quiz
 function endQuiz() {
