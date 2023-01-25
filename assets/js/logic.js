@@ -10,11 +10,13 @@ var sfxRight = new Audio("assets/sfx/correct.wav");
 var sfxWrong = new Audio("assets/sfx/incorrect.wav");
                 
  // start game with an event listener - set up function to start timer and display questions.
- var startQuiz = document.getElementById("start"); 
- document.addEventListener("click", startQuiz);
- startButton.addEventListener("click") // this should then be startQuiz.addEventListener("click"); this then states what we want from it
+ var startButton = document.getElementById("start"); 
+ startButton.addEventListener("click", startQuiz);
+//  startButton.addEventListener("click") // this should then be startQuiz.addEventListener("click"); this then states what we want from it
 
- var questionContainer = document.getElementById("questons"); //used to grab div for the Questions.
+
+//  var startButton = document.getElementById("")
+ var questionContainer = document.getElementById("questions"); //used to grab div for the Questions.
  var questionsTitle = document.getElementById("question-title");
  var choicesContainer = document.getElementById("choices"); // Grab div for the answer choices.
  var endScreen = document.getElementById("end-screen");
@@ -28,6 +30,7 @@ var sfxWrong = new Audio("assets/sfx/incorrect.wav");
 // Functions for working code:
 
 function startQuiz() {
+    console.log("start quiz");
   startButton.classList.add("hide");
   questionContainer.classList.remove("hide");
   timer = setInterval(function() {
@@ -60,11 +63,11 @@ function displayQuestion() {
     if (this.innerHTML === questions[currentQuestion].answer) { //check if the value of the button clicked(this) and if it matches the answer of the current question
       //then make the feedback element have a text of 'Correct'
       score++;
-      feedback.innerHTML = sfxRight();
+      feedback.innerHTML = sfxRight.play();
       feedback.classList.remove("hide");
     } else {
       time -= 10; //else you need to reduce 15 seconds from the time
-      feedback.innerHTML = sfxWrong();
+      feedback.innerHTML = sfxWrong.play();
       feedback.classList.remove("hide"); //remove the class of hide to the feedback element
     //   timeLeft(); //display the new time on the page
     }
@@ -81,8 +84,7 @@ function displayQuestion() {
 function endQuiz() {
   clearInterval(timer); //inside the function clear the interval of the timer
   questionsContainer.classList.add("hide"); //hide the questions
-  endScreen.classList.remove //show the end screen
-  ("hide");
+  endScreen.classList.remove("hide");
   finalScore.innerHTML = score;
 }
 
